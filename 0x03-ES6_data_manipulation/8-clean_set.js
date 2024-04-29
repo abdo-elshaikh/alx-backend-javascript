@@ -3,9 +3,9 @@ const cleanSet = (set, startString) => {
 
   if (startString === '' || typeof startString !== 'string') return '';
   set.forEach((s) => {
-      if (typeof s === 'string' && s.startsWith(startString)) {
-          strings.push(s.slice(startString.length));
-      }
+    if (typeof s === 'string' && s.startsWith(startString)) {
+      strings.push(s.slice(startString.length));
+    }
   });
   return strings.join('-');
 };
