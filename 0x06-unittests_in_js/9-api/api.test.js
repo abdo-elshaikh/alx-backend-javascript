@@ -3,6 +3,15 @@ const { expect } = require('chai');
 const { describe, it } = require('mocha');
 
 describe('Card page', function () {
+
+  it('Test for GET / exists', function (done) {
+    request('http://localhost:7865/', function (_, response, body) {
+      expect(response.statusCode).to.equal(200);
+      expect(body).to.equal('Welcome to the payment system');
+      done();
+    });
+  });
+
   it('should return 200 and the payment methods for cart 1', function (done) {
     request('http://localhost:7865/cart/1', function (_, response, body) {
       expect(response.statusCode).to.equal(200);
