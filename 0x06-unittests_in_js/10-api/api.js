@@ -31,7 +31,7 @@ app.post('/login', (req, res) => {
     res.send('Please provide a username');
   } else {
     res.statusCode = 200;
-    res.send(`Welcome :${userName}`);
+    res.send(`Welcome ${userName}`);
   }
 });
 
