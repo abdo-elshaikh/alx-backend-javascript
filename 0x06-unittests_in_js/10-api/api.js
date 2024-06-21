@@ -25,13 +25,10 @@ app.get('/available_payments', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const { userName } = req.body;
-  if (!userName) {
-    res.statusCode = 404;
-    res.send('Please provide a username');
+  if (req.body.userName) {
+    res.send(`Welcome ${req.body.userName}`);
   } else {
-    res.statusCode = 200;
-    res.send(`Welcome ${userName}`);
+    res.send('Please provide a username');
   }
 });
 

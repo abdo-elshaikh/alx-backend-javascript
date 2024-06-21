@@ -70,12 +70,12 @@ describe('Login page and payment avilable', function () {
 
   describe('Login endpoint', () => {
     it('Returns the right message', function (done) {
-      const data = { userName: 'Guillaume' };
       request.post('http://localhost:7865/login', {
         json: {
           userName: 'BobDylan',
         }
-      }, (error, response, body) => {
+      }, (_, response, body) => {
+        expect(response.statusCode).to.equal(200);
         expect(body).to.equal(`Welcome BobDylan`);
         done();
       });
@@ -85,10 +85,9 @@ describe('Login page and payment avilable', function () {
   it('check login page', (done) => {
     request.post({
       url: 'http://localhost:7865/login',
-      body: {
+      json: {
         userName: 'Betty'
-      },
-      json: true
+      }
     }, function (_, response, body) {
       expect(response.statusCode).to.equal(200);
       expect(body).to.equal('Welcome Betty');
@@ -99,10 +98,9 @@ describe('Login page and payment avilable', function () {
   it('check login page', (done) => {
     request.post({
       url: 'http://localhost:7865/login',
-      body: {
+      json: {
         userName: 'Bob'
-      },
-      json: true
+      }
     }, function (_, response, body) {
       expect(response.statusCode).to.equal(200);
       expect(body).to.equal('Welcome Bob');
